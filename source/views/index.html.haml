@@ -1,11 +1,14 @@
 ---
-title: Page Title
+title: Mazes
 ---
 
-.delete-me
-  .container
-    %h1 Proteus
-    %p
-      You're all set!
-      <a href="http://github.com/thoughtbot/proteus-middleman">Let's get started</a>
-      building your prototype.
+%h1 Text grid rendering
+
+.text-grid
+
+:coffee
+  $ ->
+    grid = new window.Grid(10, 10)
+    # window.BinaryTree.on(grid)
+    # $('.text-grid').text("all ok")
+    $('.text-grid').html(grid.toString())
