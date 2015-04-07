@@ -1,37 +1,4 @@
-# Proteus - Middleman
-
-## About Proteus
-
-[Proteus](http://github.com/thoughtbot/proteus) is a collection of useful
-starter kits to help you prototype faster. It follows the
-[thoughtbot styleguide](https://github.com/thoughtbot/guides) and includes our
-favorite front end tools.
-
-## About Middleman
-
-Middleman is a static site generator built in Ruby. This makes it a great fit
-for projects that may end up as a Ruby on Rails app. Its minimalistic structure
-makes it very easy to work with, and includes support for deploying to Github
-Pages.
-
-## Includes
-
-* [HAML](http://haml.info):
-  Simple template markup
-* [Coffeescript](http://coffeescript.org):
-  Write javascript with simpler syntax
-* [Sass](http://sass-lang.com):
-  CSS with superpowers
-* [Bourbon](http://bourbon.io):
-  Sass mixin library
-* [Neat](http://neat.bourbon.io):
-  Semantic grid for Sass and Bourbon
-* [Bitters](http://bitters.bourbon.io):
-  Scaffold styles, variables and structure for Bourbon projects.
-* [Middleman Live Reload](https://github.com/middleman/middleman-livereload):
-  Reloads the page when files change
-* [Middleman Deploy](https://github.com/karlfreeman/middleman-deploy):
-  Deploy your Middleman build via rsync, ftp, sftp, or git (deploys to Github Pages by default)
+# Mazes in CoffeeScript
 
 We also recommend [Refills](http://refills.bourbon.io/) for prepackaged interface patterns.
 
