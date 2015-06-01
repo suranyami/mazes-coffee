@@ -2,13 +2,14 @@
 title: Mazes
 ---
 
-%h1 Text grid rendering
+%h1 Mazes
 
-.text-grid
+#container
 
 :coffee
   $ ->
-    grid = new window.Grid(10, 10)
-    # window.BinaryTree.on(grid)
-    # $('.text-grid').text("all ok")
-    $('.text-grid').html(grid.toString())
+    grid = new window.Grid(20, 20)
+    window.BinaryTree.on(grid)
+
+    paper = Raphael("container", 500, 500);
+    $('.container').html(grid.draw(paper))

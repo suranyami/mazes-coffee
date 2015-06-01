@@ -4,8 +4,11 @@ window.Grid = class @Grid
     @configureCells()
 
   getAt: (row, column) ->
+    console.log row, column
     return null unless 0 <= row <= @rows - 1
-    return null unless 0 <= column <= @grid[row].count - 1
+    console.log @grid[row].length
+    console.log (0 <= row <= @rows - 1) && (0 <= column <= @grid[row].length - 1)
+    return null unless 0 <= column <= @grid[row].length - 1
     @grid[row][column]
 
   prepareGrid: ->
@@ -23,7 +26,7 @@ window.Grid = class @Grid
       cell.west  = @getAt(row, col - 1)
       cell.east  = @getAt(row, col + 1)
 
-  random_cell: ->
+  randomCell: ->
     row = _.sample(@grid)
     _.sample(row)
 
@@ -66,22 +69,38 @@ window.Grid = class @Grid
 
     "<pre>#{output}</pre>"
 
-  # to_png: (cell_size: 10, img: nil) ->
-  #   img_width = cell_size * columns
-  #   img_height = cell_size * rows
-  #
-  #   background = ChunkyPNG::Color.parse(:white)
-  #   wall = ChunkyPNG::Color.parse(:black)
-  #
-  #   img ||= ChunkyPNG::Image.new(img_width + 1, img_height + 1, background)
-  #
-  #   each_cell do |cell|
-  #     x1 = cell.column * cell_size
-  #     y1 = cell.row    * cell_size
-  #     x2 = (cell.column + 1) * cell_size
-  #     y2 = (cell.row + 1) * cell_size
-  #     img.line(x1, y1, x2, y1, wall) unless cell.north
-  #     img.line(x1, y1, x1, y2, wall) unless cell.west
-  #     img.line(x2, y1, x2, y2, wall) unless cell.linked?(cell.east)
-  #     img.line(x1, y2, x2, y2, wall) unless cell.linked?(cell.south)
-  #   img
+  draw: (paper, cellSize = 20) ->
+    width = cellSize * @columns
+    height = cellSize * @rows
+
+    @eachCell (cell) =>
+      x1 = cell.column * cellSize
+      y1 = cell.row    * cellSize
+      x2 = (cell.column + 1) * cellSize
+      y2 = (cell.row    + 1) * cellSize
+
+      # console.log "cell", cell.column, cell.row
+      # 
+      # console.log "rect", x1, y1, x2, y2
+      
+      rect = paper.rect(x1 + 10, y1 + 10, cellSize, cellSize)
+        .attr(fill: 'white')
+        .attr(stroke: 'white')
+
+      console.log cell
+      @drawLine(paper, x1, y1, x2, y1) unless cell.linked?(cell.north)
+      @drawLine(paper, x1, y1, x1, y2) unless cell.linked?(cell.west)
+      @drawLine(paper, x2, y1, x2, y2) unless cell.linked?(cell.east)
+      @drawLine(paper, x1, y2, x2, y2) unless cell.linked?(cell.south)
+
+      rect.mouseover =>
+        # console.log "mouseover", x1, y1, x2, y2
+        rect.attr({fill: 'red'})
+      rect.mouseout =>
+        # console.log "mouseout", x1, y1, x2, y2
+        rect.attr({fill: 'white'})
+
+
+  drawLine: (paper, x1, y1, x2, y2) ->
+    paper.path("M#{x1 + 10} #{y1 + 10}L#{x2 + 10} #{y2 + 10}")
+      .attr({'stroke-width': 1, 'stroke': 'black'})

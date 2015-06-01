@@ -1,12 +1,12 @@
 body {
-  background-color: $light-gray;
-  color: $medium-gray;
-}
-
-.delete-me {
+  background-color: white;
+  color: black;
   @include align-items(center);
   @include display(flex);
   @include justify-content(center);
+}
+
+.content {
   height: 100vh;
 
   .container {
