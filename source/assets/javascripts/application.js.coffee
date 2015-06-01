@@ -3,3 +3,4 @@
 //= require 'lib/raphael'
 //= require 'cell'
 //= require 'grid'
+//= require 'binary_tree'
