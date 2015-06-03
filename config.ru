@@ -1,5 +1,7 @@
-require 'rubygems'
-require "rack"
-require "middleman/rack"
+require 'middleman-core/load_paths'
+::Middleman.setup_load_paths
 
-run Middleman.server
+require 'middleman-core'
+require 'middleman-core/application'
+server = ::Middleman::Application.server
+run server  
