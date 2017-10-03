@@ -1,53 +1,30 @@
-# Mazes in CoffeeScript
+# mazes-coffee
 
-We also recommend [Refills](http://refills.bourbon.io/) for prepackaged interface patterns.
+> Mazes in Vue.js with CoffeeScript and SVG
 
-## Getting Started
+## Build Setup
 
-Set up your project in your code directory
+``` bash
+# install dependencies
+npm install
+
+# serve with hot reload at localhost:8080
+npm run dev
+
+# build for production with minification
+npm run build
+
+# build for production and view the bundle analyzer report
+npm run build --report
+
+# run unit tests
+npm run unit
+
+# run e2e tests
+npm run e2e
+
+# run all tests
+npm test
 ```
-git clone git@github.com:thoughtbot/proteus-middleman.git your-project-folder
-cd your-project-folder
-git remote rm origin
-git remote add origin your-git-url
-```
 
-Install dependencies:
-```
-bundle install
-```
-
-Run the server
-```
-middleman
-```
-
-Deploy to Github Pages
-```
-middleman deploy
-```
-
-Or install the [Proteus gem](https://github.com/thoughtbot/proteus) and enjoy some shortcuts.
-
-## Directories
-
-Stylesheets, fonts, images, and JavaScript files go in the `/source/assets/` directory.
-Vendor stylesheets and JavaScripts should go in each of their `/vendor/` directories.
-
-## Contributing
-
-If you have problems, please create a
-[GitHub Issue](https://github.com/thoughtbot/proteus-middleman/issues).
-
-Have a fix or want to add a feature?
-[Pull Requests](https://github.com/thoughtbot/proteus-middleman/pulls) are welcome!
-
-## Credits
-
-[![thoughtbot](http://images.thoughtbot.com/bourbon/thoughtbot-logo.svg)](http://thoughtbot.com)
-
-Proteus Middleman is maintained and funded by [thoughtbot, inc](http://thoughtbot.com). Thank you to all of [the contributors](https://github.com/thoughtbot/proteus-middleman/contributors)!
-
-## License
-
-Copyright © 2014–2015 [thoughtbot, inc](http://thoughtbot.com). Proteus Middleman is free software, and may be redistributed under the terms specified in the [license](LICENSE.md).
+For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
