@@ -27,14 +27,25 @@ module.exports = {
   },
   module: {
     rules: [
+      // Disabled because it interferes with CoffeeScript.
+      // {
+      //   test: /\.(js|vue)$/,
+      //   loader: 'eslint-loader',
+      //   enforce: 'pre',
+      //   include: [resolve('src'), resolve('test')],
+      //   options: {
+      //     formatter: require('eslint-friendly-formatter')
+      //   }
+      // },
       {
-        test: /\.(js|vue)$/,
-        loader: 'eslint-loader',
-        enforce: 'pre',
-        include: [resolve('src'), resolve('test')],
-        options: {
-          formatter: require('eslint-friendly-formatter')
-        }
+        test: /\.pug$/,
+        exclude: /node_modules/,
+        loader: 'pug',
+      },
+      {
+        test: /\.coffee$/,
+        loader: 'coffee-loader',
+        options: {sourceMap: true}
       },
       {
         test: /\.vue$/,
