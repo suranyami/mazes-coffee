@@ -1,8 +1,5 @@
 <template lang="pug">
   .maze
-    h1 Maze
-    ul
-      li(v-for='name in fruit') {{name}}
     #drawing
 </template>
 
@@ -11,20 +8,31 @@
 
   export default
     data: ->
-      fruit: ["Apple", "Turnip", "Carrot"]
+      width: 400
+      height: 300
+      columns: 40
+      rows: 30
     methods:
       draw: ->
+        cellWidth = @width / @columns
+        cellHeight = @height / @rows
+
         draw = SVG('drawing').size(400, 300)
         symbol = draw.symbol()
-        symbol.rect(100, 100).fill('#f09')
-        use = draw.use(symbol).move(20, 60)
+        for x in [0..@columns]
+          for y in [0..@rows]
+            symbol.rect(@cellWidth, @cellHeight).fill('white')
+            symbol.stroke({color: 'red', width: '0.5px'})
+            symbol.move(x, y)
+            use = draw.use(symbol)
+
     mounted: ->
       this.draw()
 
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style lang="scss" scoped>
 h1, h2 {
   font-weight: normal;
 }
@@ -44,7 +52,7 @@ a {color: #42b983;}
 #drawing {
   width: 400px;
   height: 300px;
-  background-color: black;
+  background-color: white;
   margin: 0 25%;
 }
 </style>
