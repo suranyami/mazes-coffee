@@ -17,14 +17,15 @@
         cellWidth = @width / @columns
         cellHeight = @height / @rows
 
-        draw = SVG('drawing').size(400, 300)
-        symbol = draw.symbol()
+        drawing = SVG('drawing').size(@width, @height)
         for x in [0..@columns]
           for y in [0..@rows]
-            symbol.rect(@cellWidth, @cellHeight).fill('white')
-            symbol.stroke({color: 'red', width: '0.5px'})
-            symbol.move(x, y)
-            use = draw.use(symbol)
+            symbol = drawing.symbol()
+            symbol.rect(cellWidth, cellHeight).fill('white')
+            symbol.stroke({color: 'black', width: '0.5px'})
+            xOff = x * cellWidth
+            yOff = y * cellWidth
+            use = drawing.use(symbol).move(xOff, yOff)
 
     mounted: ->
       this.draw()
@@ -52,7 +53,7 @@ a {color: #42b983;}
 #drawing {
   width: 400px;
   height: 300px;
-  background-color: white;
+  background-color: lightyellow;
   margin: 0 25%;
 }
 </style>
